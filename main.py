@@ -6,7 +6,7 @@ import os
 import datetime
 
 #   Constantes de configuração do Menu
-menusize = 100
+menusize = 120
 
 #   Definições
 class Servidor():
@@ -24,13 +24,13 @@ class Servidor():
 
     def backup(self):
         currentdate = datetime.date.today()
-        backupname = f'{self.name} Backup {currentdate}.rar'
+        backupname = f'{self.name} Backup {currentdate}.zip'
         if not os.path.exists(f'{backuppath}\\{self.name}'):
             os.mkdir(f'{backuppath}\\{self.name}')
-        os.system(f'{rarpath} a -r -ep1 {backuppath}\\{self.name}\\"{backupname}" {self.path}')
-        return backupname
+        os.system(f'{zippath} a {backuppath}\\{self.name}\\"{backupname}" {self.path}')
+        return backupname   
 
-
+#Pricipal
 while True: # Menu Principal
     menuoption = menu('Minecraft Server Manager', ['Gerenciamento', 'Listar Servidores', 'Sair'], menusize, 'green', 'yellow', 'Opção: ')
 
